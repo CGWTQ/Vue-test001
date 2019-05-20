@@ -5,6 +5,9 @@
       <mt-header fixed title="Vue 商城"></mt-header>
 
 <!--   中间 Router 区域  -->
+      <transition >
+          <router-view></router-view>
+      </transition>
 
 
 <!--   底部 Tabbar 区域  -->
@@ -28,7 +31,7 @@
       </nav>
 
 
-    <h1>这是 App 组件</h1>
+
   </div>
 </template>
 
@@ -39,5 +42,19 @@
 <style lang="scss" scoped>
     .app-container{
         padding-top: 40px;
+        overflow-x: hidden;
+    }
+
+    .v-enter{
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    .v-leave-to{
+        opacity: 0;
+        transform: translateX(-100%);
+        position: absolute;
+    }
+    .v-enter-active,.v-leave-active{
+        transition: all 0.5s ease;
     }
 </style>
