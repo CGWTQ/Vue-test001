@@ -8,12 +8,15 @@
             </p>
             <hr>
             <div title="content" v-html="news">{{ news.content }}</div>
+            <comment-box></comment-box>
         </div>
 
     </div>
 </template>
 
 <script>
+    import comment from '../subcomponets/comment.vue'
+
     export default {
         data(){
             return {
@@ -58,7 +61,7 @@
                         "src": "中央人民政府网站",
                         "category": "news",
                         "pic": "https://cms-bucket.ws.126.net/2019/05/22/f65c73d7fdc0435aa8f33290e5297d47.png",
-                        "content":"1111",
+                        "content":"内容等你来书写！！！",
                         "url": "http://3g.163.com/news/19/0522/17/EFQ15BF10001899N.html",
                         "weburl": "http://news.163.com/19/0522/17/EFQ15BF10001899N.html"
                     },
@@ -69,7 +72,7 @@
                         "src": "中央纪委国家监委网站",
                         "category": "news",
                         "pic": "https://cms-bucket.ws.126.net/2019/05/22/f2f1fe8fa11b45c7841e177edce37927.png",
-                        "content":"",
+                        "content":"内容等你来书写！！！",
                         "url": "http://3g.163.com/news/19/0522/16/EFPTHNDA00018AOR.html",
                         "weburl": "http://news.163.com/19/0522/16/EFPTHNDA00018AOR.html"
                     },
@@ -80,7 +83,7 @@
                         "src": "政知圈",
                         "category": "news",
                         "pic": "https://cms-bucket.ws.126.net/2019/05/22/118aeb1026a74dd6ac011ca7e962ba82.png",
-                        "content":"",
+                        "content":"内容等你来书写！！！",
                         "url": "http://3g.163.com/news/19/0522/17/EFQ1DTT00001899N.html",
                         "weburl": "http://news.163.com/19/0522/17/EFQ1DTT00001899N.html"
                     },
@@ -91,7 +94,7 @@
                         "src": "澎湃新闻",
                         "category": "news",
                         "pic": "https://cms-bucket.ws.126.net/2019/05/22/86832511d10f46beaa205ca3ec57225f.png",
-                        "content":"",
+                        "content":"内容等你来书写！！！",
                         "url": "http://3g.163.com/news/19/0522/16/EFPTG3M700018AOR.html",
                         "weburl": "http://news.163.com/19/0522/16/EFPTG3M700018AOR.html"
                     },
@@ -102,7 +105,7 @@
                         "src": "央视新闻",
                         "category": "news",
                         "pic": "https://cms-bucket.ws.126.net/2019/05/22/b472a0f399a94030a4de56a5b56c2d04.png",
-                        "content":"",
+                        "content":"内容等你来书写！！！",
                         "url": "http://3g.163.com/news/19/0522/17/EFQ1CSG60001899N.html",
                         "weburl": "http://news.163.com/19/0522/17/EFQ1CSG60001899N.html"
                     },
@@ -113,7 +116,7 @@
                         "src": "中国新闻网",
                         "category": "video",
                         "pic": "https://p.ivideo.sina.com.cn/video/290/177/950/290177950.jpg",
-                        "content":"",
+                        "content":"内容等你来书写！！！",
                         "url": "https://video.sina.cn/news/2019-05-22/detail-ihvhiews3715557.d.html?vt=4&pos=108",
                         "weburl": "http://video.sina.com.cn/p/news/2019-05-22/detail-ihvhiews3715557.d.html"
                     },
@@ -124,7 +127,7 @@
                         "src": "新京报",
                         "category": "news",
                         "pic": "https://cms-bucket.ws.126.net/2019/05/22/94415b9aea134599b8821d2d66ee2c3b.png",
-                        "content":"",
+                        "content":"内容等你来书写！！！",
                         "url": "http://3g.163.com/news/19/0522/16/EFPTQ6090001899N.html",
                         "weburl": "http://news.163.com/19/0522/16/EFPTQ6090001899N.html"
                     }
@@ -142,6 +145,9 @@
                 this.news[0]=this.list[this.id]
                 // console.log(this.news[0])
             }
+        },
+        components:{
+            "comment-box":comment,
         }
     }
 </script>

@@ -6,6 +6,7 @@ import ShopcarContainer from './components/tabbar/ShoppingcarContainer.vue'
 import SearchContainer from './components/tabbar/SearchContainer.vue'
 import newlist from './components/news/newlist.vue'
 import NewsInfo from './components/news/newsInfo.vue'
+import images from './components/photos/images.vue'
 
 
 // 3. 创建路由对象
@@ -19,6 +20,7 @@ var router = new VueRouter({
     { path: '/home/newlist', component: newlist },
     // { path: '/home/newsInfo', component: NewsInfo },
     { path: '/home/newsInfo/:id', component: NewsInfo },
+    { path: '/home/images', component: images },
 
   ],
   linkActiveClass:'mui-active'

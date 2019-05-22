@@ -10,9 +10,10 @@ import router from './router.js'
 import './lib/mui/css/mui.min.css'
 import './lib/mui/css/icons-extra.css'
 //按需导入Mint-ui
-import { Header, Swipe, SwipeItem } from 'mint-ui'
+import { Header, Swipe, SwipeItem , Button} from 'mint-ui'
 Vue.component(Swipe.name, Swipe)
 Vue.component(SwipeItem.name, SwipeItem)
+Vue.component(Button.name, Button);
 
 //应用路由模块
 Vue.use(VueRouter);
