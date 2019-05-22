@@ -5,6 +5,7 @@ import MemberContainer from './components/tabbar/VipContainer.vue'
 import ShopcarContainer from './components/tabbar/ShoppingcarContainer.vue'
 import SearchContainer from './components/tabbar/SearchContainer.vue'
 import newlist from './components/news/newlist.vue'
+import NewsInfo from './components/news/newsInfo.vue'
 
 
 // 3. 创建路由对象
@@ -16,6 +17,8 @@ var router = new VueRouter({
     { path: '/shoppingar', component: ShopcarContainer },
     { path: '/search', component: SearchContainer },
     { path: '/home/newlist', component: newlist },
+    // { path: '/home/newsInfo', component: NewsInfo },
+    { path: '/home/newsInfo/:id', component: NewsInfo },
 
   ],
   linkActiveClass:'mui-active'

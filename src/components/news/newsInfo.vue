@@ -1,69 +1,22 @@
 <template>
-    <div>
-        <ul class="mui-table-view">
+    <div class="news"  >
+        <div v-for="item in news" :key="item.id">
+            <h3 class="title" >{{ item.title }}</h3>
+            <p class="subtitle">
+                <span>{{ item.time }}</span>
+                <span>点击：520次</span>
+            </p>
+            <hr>
+            <div title="content" v-html="news">{{ news.content }}</div>
+        </div>
 
-            <li class="mui-table-view-cell mui-media" v-for=" item in list" :key=" item.id ">
-
-                <router-link :to="'/home/newsInfo/' + item.id">
-                    <img class="mui-media-object mui-pull-left" :src="item.pic">
-                    <div class="mui-media-body">
-                        <p>{{ item.title }}</p>
-                        <p class='mui-ellipsis'>
-                            <span>发表时间：{{ item.time }}</span>
-                            <span>点击：520次</span>
-                        </p>
-                    </div>
-                </router-link>
-
-<!--                <router-link to="/home/newsInfo">-->
-<!--                    <img class="mui-media-object mui-pull-left" src="../../images/shuijiao.jpg">-->
-<!--                    <div class="mui-media-body">-->
-<!--                        木屋-->
-<!--                        <p class='mui-ellipsis'>-->
-<!--                            <span>发表时间：2019.05.20</span>-->
-<!--                            <span>点击：100次</span>-->
-<!--                        </p>-->
-<!--                    </div>-->
-<!--                </router-link>-->
-
-            </li>
-<!--            <li class="mui-table-view-cell mui-media">-->
-<!--                <router-link to="/home/newsInfo">-->
-<!--                    <img class="mui-media-object mui-pull-left" src="../../images/muwu.jpg">-->
-<!--                    <div class="mui-media-body">-->
-<!--                        木屋-->
-<!--                        <p class='mui-ellipsis'>-->
-<!--                            <span>发表时间：2019.05.20</span>-->
-<!--                            <span>点击：100次</span>-->
-<!--                        </p>-->
-<!--                    </div>-->
-<!--                </router-link>-->
-<!--            </li>-->
-<!--            <li class="mui-table-view-cell mui-media">-->
-<!--                <router-link to="/home/newsInfo">-->
-<!--                    <img class="mui-media-object mui-pull-left" src="../../images/cbd.jpg">-->
-<!--                    <div class="mui-media-body">-->
-<!--                        CBD-->
-<!--                        <p class='mui-ellipsis'>-->
-<!--                            <span>发表时间：2019.05.20</span>-->
-<!--                            <span>点击：100次</span>-->
-<!--                        </p>-->
-<!--                    </div>-->
-<!--                </router-link>-->
-<!--            </li>-->
-
-        </ul>
     </div>
-
 </template>
 
 <script>
-    var New = require('./New.json');
-    var News = New.News;
-    import { Toast } from "mint-ui";
     export default {
         data(){
-            return{
+            return {
                 "list": [
                     {
                         "id": 1,
@@ -72,7 +25,7 @@
                         "src": "环球网",
                         "category": "mil",
                         "pic": "https://n.sinaimg.cn/sinacn20190522s/286/w763h323/20190522/8e03-hxhyiun2734263.jpg",
-                        "content":"\"<p class=\"\\\"art_p\\\"\">《纽约时报》22 日报道称，美政府将考虑将海康威视列入黑名单，限制其购买美国技术。海康威视22日上午向《环球时报》进行回复称，“我们已关注到《纽约时报》今早的报道，期望公司得到公平、公正的对待。”针对外媒曾指责海康威视设备用于新疆对穆斯林进行大规模监视的报道，海康威视回应称，海康威视是一家产品供应商，未在新疆做过任何不恰当的行为，公司过去不曾、现在和将来也不会以侵犯人权为条件的业务作为公司业务进行经营。</p>\\n\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t<figure class=\"\\\"art_img_mini\" j_p_gallery\\\"=\"\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<img class=\"\\\"art_img_mini_img mCS_img_loaded\" j_fullppt_cover\\\"=\"\" src=\"https://n.sinaimg.cn/sinacn20190522s/520/w661h659/20190522/5c85-hxhyiun2734382.jpg\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t</figure>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\n<p class=\"\\\"art_p\\\"\">《纽约时报》报道截图</p>\\n<p class=\"\\\"art_p\\\"\">5月22日海康威视开盘即接近跌停，之后股价开始反弹，但仍然维持着超过5%的跌幅。</p>\\n\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t<figure class=\"\\\"art_img_mini\" j_p_gallery\\\"=\"\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<img class=\"\\\"art_img_mini_img mCS_img_loaded\" j_fullppt_cover\\\"=\"\" src=\"https://n.sinaimg.cn/sinacn20190522s/672/w851h621/20190522/283a-hxhyiun2734475.jpg\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t</figure>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\n<p class=\"\\\"art_p\\\"\">市场猜测海康威视早盘大跌可能来自于外媒的一则报道。根据《纽约时报》22日的报道，知情人士称，美国特朗普政府正在考虑将中国监控巨头海康威视列入黑名单，限制其购买美国技术。《纽约时报》表示，美国商务部可能会要求美国公司必须获得政府批准才能向海康威视供应零部件，以限制该公司获取有助于为其设备提供支持的技术。</p>\\n<p class=\"\\\"art_p\\\"\">去年年底，据外交部网站消息，《华尔街日报》报道称，过去一年左右，中国新疆加大了对穆斯林的大规模监视、拘留和同化行动，并将有关做法复制到中国其他穆斯林地区。中国外交部新闻发言人华春莹曾对此进行回应称，近期有一些西方媒体为了制造耸人听闻的新闻，扮演了不光彩的角色，发挥了不好的作用。他们往往基于道听途说，或者援引一些根本就是虚假或虚构的消息源进行不负责任的报道。华春莹进一步解释说，“监控设施它本身不会自动去辨认针对某个特定的族群，它震慑的是坏人，保护的是好人。同样的事情，为什么西方国家做了就是保护人权，而中国做了就是侵犯人权呢？我想只有一个解释，就是赤裸裸的双重标准。”</p>\\n<p class=\"\\\"art_p\\\"\">根据海康威视财报，2018年公司销售收入达到498亿元，净利润为113亿元，业务增长稳健。但公司认为，2018年公司在经营方面面临的挑战超过以往任何一个财年，2019年公司外部环境依然存在不确定性，某些大国的单边主义政策和贸易保护趋势明显上升，如果逆全球化的趋势加重，将影响公司在海外发达国家市场的业务拓展和品牌升级。</p>\\n<p class=\"\\\"art_p\\\"\">根据IHS报告，海康威视连续7年蝉联视频监控行业全球第一，拥有全球视频监控市场份额的22.6%。截至2018年底的数据，公司全球员工超34000人，其中研发人员和技术服务人员超16000人，其产品和解决方案已广泛应用在150多个国家和地区。</p>\\n<p class=\"\\\"art_p\\\"\">以下是海康威视就《纽约时报》的报道向《环球时报》发来的回应：</p>\\n<p class=\"\\\"art_p\\\"\">我们已关注到纽约时报今早的报道，期望公司得到公平、公正的对待。</p>\\n<p class=\"\\\"art_p\\\"\">海康威视是一家商业公司，我们恪守商业公司的本分。公司未曾因所谓的“海康威视新疆人权问题”受到任何政府、任何人权机构等的调查取证，也未有海外媒体就该问题向海康威视进行全面的、深入的核实真实情况。海康威视是一家产品供应商，我们未在新疆做过任何不恰当的行为，公司过去不曾、现在和将来也不会也以侵犯人权为条件的业务作为公司业务进行经营。公司已主动聘请美国专业人士对公司在新疆的业务进行独立审查，专业人士将在获得充分的证据后，回应海外各相关方的关注。</p>\\n<p class=\"\\\"art_p\\\"\">海康威视是全球安防行业的龙头，我们的成就是依赖全球34000名员工坚韧不拔的努力获得的。十八年来，海康威视坚守工匠精神，持续以技术创新驱动业务发展，以专业厚实、诚信正直的品德赢取信任，我们珍视每一个国家和地区的客户，我们将持之以恒的为客户创造价值。</p>\\n<p class=\"\\\"art_p\\\"\">此前报道美国又想“坏”大疆？大疆回应。↓</p>\\n<p class=\"\\\"art_p\\\"\">是不是每个成功的中国公司都有可能面临来自美国的压力？</p>\\n<p class=\"\\\"art_p\\\"\">CNN20日最新的报道让人不免对美国的气度感到担忧。</p>\\n<div sax-type=\"\\\"proxy\\\"\" class=\"\\\"j_native_qrs190522\" box\\\"=\"\" style=\"\\\"margin:20px\" 0\\\"=\"\"></div><p class=\"\\\"art_p\\\"\">如果美国还有气度的话。</p>\\n\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t<figure class=\"\\\"art_img_mini\" j_p_gallery\\\"=\"\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<img class=\"\\\"art_img_mini_img mCS_img_loaded\" j_fullppt_cover\\\"=\"\" src=\"https://n.sinaimg.cn/sinacn20190522s/271/w831h240/20190522/e658-hxhyiun2734739.jpg\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t</figure>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\n<p class=\"\\\"art_p\\\"\">CNN报道截图</p>\\n<p class=\"\\\"art_p\\\"\">CNN在题为“国土安全部强烈担忧：中国产无人机在窃取数据”的报道中说，美国国土安全部下属网络和基础设施安全局在当地时间周一（20日）发布报告，警告称“中国产无人机可能正将敏感数据传送回国内制造商”，并称这种做法会对美国机构的信息安全带来“潜在威胁”。这份报告没有具体点出是哪一家中国无人机制造商，但CNN全文都将目光投向大疆，CNN说，美国和加拿大市场上接近80%的无人机都来自中国大疆。</p>\\n\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t<figure class=\"\\\"art_img_mini\" j_p_gallery\\\"=\"\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<img class=\"\\\"art_img_mini_img mCS_img_loaded\" j_fullppt_cover\\\"=\"\" src=\"https://n.sinaimg.cn/sinacn20190522s/498/w831h467/20190522/9d99-hxhyiun2734787.jpg\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t</figure>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\n<p class=\"\\\"art_p\\\"\">2015年迪拜举行的科技展上展示的大疆无人机。（图源：CNN）</p>\\n<p class=\"\\\"art_p\\\"\">CNN说，美国国土安全部在警告中称，“美国政府对于任何技术产品将美国数据带回集权国家感到强烈担忧”，宣称这些国家有可能让其情报机构无约束地接触到美国的数据。该警告尤其提到中国，和中国产无人机。</p>\\n\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t<figure class=\"\\\"art_img_mini\" j_p_gallery\\\"=\"\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<img class=\"\\\"art_img_mini_img mCS_img_loaded\" j_fullppt_cover\\\"=\"\" src=\"https://n.sinaimg.cn/sinacn20190522s/368/w644h524/20190522/ae05-hxhyiun2734835.jpg\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t</figure>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\n<p class=\"\\\"art_p\\\"\">今早，有媒体报道说，大疆可能因此面临来自美国方面的制裁。但环球网记者在CNN报道中没有看到这个信息。CNN提到，美国针对大疆的警告并非首次。2017年，美军曾发布禁令，禁止使用大疆无人机。</p>\\n<p class=\"\\\"art_p\\\"\">就在刚刚，环球网编辑部收到来自大疆公司针对美国国土安全部警告的回应。</p>\\n<p class=\"\\\"art_p\\\"\">回应全文如下：</p>\\n<p class=\"\\\"art_p\\\"\">“DJI大疆创新一直以来高度重视信息安全问题，我们技术的安全性已经在全球得到反复验证，其中也包括美国政府和美国领先企业的独立验证。当用户使用DJI大疆创新的无人机或其他技术产品时，所生产、存储和传输的数据都完全由用户掌握。此外，DJI大疆创新还提供特殊的模式以满足不同客户的信息安全管理需要，比如断开网络连接的本地数据模式、私有云部署模式等等。全球大量机构每天都在使用DJI大疆创新的技术，以提高生产效率，保障生产安全，甚至是拯救生命。DJI大疆创新将持续与全球的客户及政府管理部门合作，确保我们能满足不同地区不同行业的技术规范以及信息安全需要。”</p>\\n<p class=\"\\\"art_p\\\"\">环环：每次做这种新闻，脑海中都会冒出一个老祖宗留下的成语——贼喊捉贼！</p>\\n<p class=\"\\\"art_p\\\"\">你同意么？</p>\\n<p class=\"\\\"art_p\\\"\">来源：环球时报-环球网/倪浩</p>\\n<p class=\"\\\"art_p\\\"\"></p>\"",
+                        "content":"<p class=\"\\\"art_p\\\"\">《纽约时报》22 日报道称，美政府将考虑将海康威视列入黑名单，限制其购买美国技术。海康威视22日上午向《环球时报》进行回复称，“我们已关注到《纽约时报》今早的报道，期望公司得到公平、公正的对待。”针对外媒曾指责海康威视设备用于新疆对穆斯林进行大规模监视的报道，海康威视回应称，海康威视是一家产品供应商，未在新疆做过任何不恰当的行为，公司过去不曾、现在和将来也不会以侵犯人权为条件的业务作为公司业务进行经营。</p>\\n\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t<figure class=\"\\\"art_img_mini\" j_p_gallery\\\"=\"\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<img class=\"\\\"art_img_mini_img mCS_img_loaded\" j_fullppt_cover\\\"=\"\" src=\"https://n.sinaimg.cn/sinacn20190522s/520/w661h659/20190522/5c85-hxhyiun2734382.jpg\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t</figure>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\n<p class=\"\\\"art_p\\\"\">《纽约时报》报道截图</p>\\n<p class=\"\\\"art_p\\\"\">5月22日海康威视开盘即接近跌停，之后股价开始反弹，但仍然维持着超过5%的跌幅。</p>\\n\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t<figure class=\"\\\"art_img_mini\" j_p_gallery\\\"=\"\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<img class=\"\\\"art_img_mini_img mCS_img_loaded\" j_fullppt_cover\\\"=\"\" src=\"https://n.sinaimg.cn/sinacn20190522s/672/w851h621/20190522/283a-hxhyiun2734475.jpg\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t</figure>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\n<p class=\"\\\"art_p\\\"\">市场猜测海康威视早盘大跌可能来自于外媒的一则报道。根据《纽约时报》22日的报道，知情人士称，美国特朗普政府正在考虑将中国监控巨头海康威视列入黑名单，限制其购买美国技术。《纽约时报》表示，美国商务部可能会要求美国公司必须获得政府批准才能向海康威视供应零部件，以限制该公司获取有助于为其设备提供支持的技术。</p>\\n<p class=\"\\\"art_p\\\"\">去年年底，据外交部网站消息，《华尔街日报》报道称，过去一年左右，中国新疆加大了对穆斯林的大规模监视、拘留和同化行动，并将有关做法复制到中国其他穆斯林地区。中国外交部新闻发言人华春莹曾对此进行回应称，近期有一些西方媒体为了制造耸人听闻的新闻，扮演了不光彩的角色，发挥了不好的作用。他们往往基于道听途说，或者援引一些根本就是虚假或虚构的消息源进行不负责任的报道。华春莹进一步解释说，“监控设施它本身不会自动去辨认针对某个特定的族群，它震慑的是坏人，保护的是好人。同样的事情，为什么西方国家做了就是保护人权，而中国做了就是侵犯人权呢？我想只有一个解释，就是赤裸裸的双重标准。”</p>\\n<p class=\"\\\"art_p\\\"\">根据海康威视财报，2018年公司销售收入达到498亿元，净利润为113亿元，业务增长稳健。但公司认为，2018年公司在经营方面面临的挑战超过以往任何一个财年，2019年公司外部环境依然存在不确定性，某些大国的单边主义政策和贸易保护趋势明显上升，如果逆全球化的趋势加重，将影响公司在海外发达国家市场的业务拓展和品牌升级。</p>\\n<p class=\"\\\"art_p\\\"\">根据IHS报告，海康威视连续7年蝉联视频监控行业全球第一，拥有全球视频监控市场份额的22.6%。截至2018年底的数据，公司全球员工超34000人，其中研发人员和技术服务人员超16000人，其产品和解决方案已广泛应用在150多个国家和地区。</p>\\n<p class=\"\\\"art_p\\\"\">以下是海康威视就《纽约时报》的报道向《环球时报》发来的回应：</p>\\n<p class=\"\\\"art_p\\\"\">我们已关注到纽约时报今早的报道，期望公司得到公平、公正的对待。</p>\\n<p class=\"\\\"art_p\\\"\">海康威视是一家商业公司，我们恪守商业公司的本分。公司未曾因所谓的“海康威视新疆人权问题”受到任何政府、任何人权机构等的调查取证，也未有海外媒体就该问题向海康威视进行全面的、深入的核实真实情况。海康威视是一家产品供应商，我们未在新疆做过任何不恰当的行为，公司过去不曾、现在和将来也不会也以侵犯人权为条件的业务作为公司业务进行经营。公司已主动聘请美国专业人士对公司在新疆的业务进行独立审查，专业人士将在获得充分的证据后，回应海外各相关方的关注。</p>\\n<p class=\"\\\"art_p\\\"\">海康威视是全球安防行业的龙头，我们的成就是依赖全球34000名员工坚韧不拔的努力获得的。十八年来，海康威视坚守工匠精神，持续以技术创新驱动业务发展，以专业厚实、诚信正直的品德赢取信任，我们珍视每一个国家和地区的客户，我们将持之以恒的为客户创造价值。</p>\\n<p class=\"\\\"art_p\\\"\">此前报道美国又想“坏”大疆？大疆回应。↓</p>\\n<p class=\"\\\"art_p\\\"\">是不是每个成功的中国公司都有可能面临来自美国的压力？</p>\\n<p class=\"\\\"art_p\\\"\">CNN20日最新的报道让人不免对美国的气度感到担忧。</p>\\n<div sax-type=\"\\\"proxy\\\"\" class=\"\\\"j_native_qrs190522\" box\\\"=\"\" style=\"\\\"margin:20px\" 0\\\"=\"\"></div><p class=\"\\\"art_p\\\"\">如果美国还有气度的话。</p>\\n\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t<figure class=\"\\\"art_img_mini\" j_p_gallery\\\"=\"\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<img class=\"\\\"art_img_mini_img mCS_img_loaded\" j_fullppt_cover\\\"=\"\" src=\"https://n.sinaimg.cn/sinacn20190522s/271/w831h240/20190522/e658-hxhyiun2734739.jpg\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t</figure>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\n<p class=\"\\\"art_p\\\"\">CNN报道截图</p>\\n<p class=\"\\\"art_p\\\"\">CNN在题为“国土安全部强烈担忧：中国产无人机在窃取数据”的报道中说，美国国土安全部下属网络和基础设施安全局在当地时间周一（20日）发布报告，警告称“中国产无人机可能正将敏感数据传送回国内制造商”，并称这种做法会对美国机构的信息安全带来“潜在威胁”。这份报告没有具体点出是哪一家中国无人机制造商，但CNN全文都将目光投向大疆，CNN说，美国和加拿大市场上接近80%的无人机都来自中国大疆。</p>\\n\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t<figure class=\"\\\"art_img_mini\" j_p_gallery\\\"=\"\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<img class=\"\\\"art_img_mini_img mCS_img_loaded\" j_fullppt_cover\\\"=\"\" src=\"https://n.sinaimg.cn/sinacn20190522s/498/w831h467/20190522/9d99-hxhyiun2734787.jpg\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t</figure>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\n<p class=\"\\\"art_p\\\"\">2015年迪拜举行的科技展上展示的大疆无人机。（图源：CNN）</p>\\n<p class=\"\\\"art_p\\\"\">CNN说，美国国土安全部在警告中称，“美国政府对于任何技术产品将美国数据带回集权国家感到强烈担忧”，宣称这些国家有可能让其情报机构无约束地接触到美国的数据。该警告尤其提到中国，和中国产无人机。</p>\\n\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t<figure class=\"\\\"art_img_mini\" j_p_gallery\\\"=\"\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<img class=\"\\\"art_img_mini_img mCS_img_loaded\" j_fullppt_cover\\\"=\"\" src=\"https://n.sinaimg.cn/sinacn20190522s/368/w644h524/20190522/ae05-hxhyiun2734835.jpg\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t</figure>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\n<p class=\"\\\"art_p\\\"\">今早，有媒体报道说，大疆可能因此面临来自美国方面的制裁。但环球网记者在CNN报道中没有看到这个信息。CNN提到，美国针对大疆的警告并非首次。2017年，美军曾发布禁令，禁止使用大疆无人机。</p>\\n<p class=\"\\\"art_p\\\"\">就在刚刚，环球网编辑部收到来自大疆公司针对美国国土安全部警告的回应。</p>\\n<p class=\"\\\"art_p\\\"\">回应全文如下：</p>\\n<p class=\"\\\"art_p\\\"\">“DJI大疆创新一直以来高度重视信息安全问题，我们技术的安全性已经在全球得到反复验证，其中也包括美国政府和美国领先企业的独立验证。当用户使用DJI大疆创新的无人机或其他技术产品时，所生产、存储和传输的数据都完全由用户掌握。此外，DJI大疆创新还提供特殊的模式以满足不同客户的信息安全管理需要，比如断开网络连接的本地数据模式、私有云部署模式等等。全球大量机构每天都在使用DJI大疆创新的技术，以提高生产效率，保障生产安全，甚至是拯救生命。DJI大疆创新将持续与全球的客户及政府管理部门合作，确保我们能满足不同地区不同行业的技术规范以及信息安全需要。”</p>\\n<p class=\"\\\"art_p\\\"\">环环：每次做这种新闻，脑海中都会冒出一个老祖宗留下的成语——贼喊捉贼！</p>\\n<p class=\"\\\"art_p\\\"\">你同意么？</p>\\n<p class=\"\\\"art_p\\\"\">来源：环球时报-环球网/倪浩</p>\\n<p class=\"\\\"art_p\\\"\"></p>\"",
                         "url": "http://mil.sina.cn/2019-05-22/detail-ihvhiqay0508178.d.html?vt=4&pos=108",
                         "weburl": "https://mil.news.sina.com.cn/2019-05-22/doc-ihvhiqay0508178.shtml"
                     },
@@ -105,7 +58,7 @@
                         "src": "中央人民政府网站",
                         "category": "news",
                         "pic": "https://cms-bucket.ws.126.net/2019/05/22/f65c73d7fdc0435aa8f33290e5297d47.png",
-                        "content":"",
+                        "content":"1111",
                         "url": "http://3g.163.com/news/19/0522/17/EFQ15BF10001899N.html",
                         "weburl": "http://news.163.com/19/0522/17/EFQ15BF10001899N.html"
                     },
@@ -176,42 +129,37 @@
                         "weburl": "http://news.163.com/19/0522/16/EFPTQ6090001899N.html"
                     }
                 ],
-
-                newslist:[]
+                "id":this.$route.params.id-1,
+                "news":[],
             }
         },
         created(){
-            //this.getNewsList();
+            this.getId()
         },
         methods:{
-            getNewsList(){
-
-                this.$http.jsonp("https://news-at.zhihu.com/api/4/news/latest", {},
-                    {
-                        headers: {},
-                        emulateJSON: true }).then((result) => {
-                    console.log(111)
-                    // if(result.body.data != 0){
-                    //     console.log(111)
-                    //     this.newslist = result.body.result.list;
-                    // }else{
-                    //     Toast("加载新闻资讯失败。。。");
-                    // }
-                });
+            //业务逻辑与之前相同
+            getId:function () {
+                this.news[0]=this.list[this.id]
+                // console.log(this.news[0])
             }
         }
     }
 </script>
 
 <style lang="scss" scoped>
-.mui-table-view{
-    li{
-        .mui-ellipsis{
-            font-size: 12px;
-            color: #226aff;
+    .news{
+        padding: 0 4px;
+        .title{
+            font-size: 16px;
+            color: red;
+            text-align: center;
+            margin: 10px 0;
+        }
+        .subtitle{
             display: flex;
+            color: skyblue;
             justify-content: space-between;
         }
     }
-}
+
 </style>
