@@ -3,25 +3,30 @@
         <div id="slider" class="mui-slider ">
             <div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
                 <div class="mui-scroll">
-                    <router-link class="mui-control-item mui-active" to="/home/imagesAll" data-wid="tab-top-subpage-1.html">
+                    <a class="mui-control-item mui-active" >
                         全部
-                    </router-link>
-                    <router-link class="mui-control-item" to="/home/images/imagesAll" data-wid="tab-top-subpage-2.html">
+                    </a>
+                    <a class="mui-control-item" >
                         美女
-                    </router-link>
-                    <a class="mui-control-item" href="#item3mobile" data-wid="tab-top-subpage-3.html">
+                    </a>
+                    <a class="mui-control-item" href="#item3mobile" >
                         汽车
                     </a>
-                    <a class="mui-control-item" href="#item4mobile" data-wid="tab-top-subpage-4.html">
+                    <a class="mui-control-item" href="#item4mobile" >
                         科技
                     </a>
-                    <a class="mui-control-item" href="#item5mobile" data-wid="tab-top-subpage-5.html">
+                    <a class="mui-control-item" href="#item5mobile" >
                         清新
                     </a>
                 </div>
             </div>
         </div>
-        <router-view></router-view>
+
+        <ul>
+            <li >
+                <h1>图片分享</h1>
+            </li>
+        </ul>
     </div>
 
 

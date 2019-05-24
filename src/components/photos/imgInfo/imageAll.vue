@@ -1,8 +1,8 @@
 <template>
     <div>
         <ul>
-            <li v-for="item in list">
-                <img v-lazy="item">
+            <li >
+                <h1>图片分享</h1>
             </li>
         </ul>
     </div>
