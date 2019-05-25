@@ -1,12 +1,12 @@
 <template>
     <div class="goodslist-container">
-        <div class="goods-item"v-for="item in list" :key="list.id">
+        <div class="goods-item"v-for="item in List" :key="item.id">
             <img :src="item.src" alt="魅族16s">
             <h1 class="title" >{{ item.title}}</h1>
             <div class="info">
                 <p class="price">
                     <span class="now">￥{{ item.new}}</span>
-                    <span class="old">￥{{ item.old }}</span>
+                    <span class="old">￥{{ item.old }}</span>L
                 </p>
                 <p class="sell">
                     <span>热卖中</span>
@@ -18,9 +18,11 @@
 </template>
 
 <script>
+    import { Toast } from "mint-ui";
     export default {
         data(){
             return{
+                "List":[],
                 "list":[
                     { "id":0,"src": "http://img.alicdn.com/bao/uploaded/i1/1695308781/O1CN01J07Lf22EjkNEcq4p2_!!1695308781.jpg","title":"Meizu/魅族 16s","new":"2999","old":"3198","repertory":999,"content":""},
                     { "id":1,"src":"http://img.alicdn.com/bao/uploaded/i4/TB1E3khhYrpK1RjSZTEC_.WAVXa_021523.jpg" ,"title":"Huawei/华为 Mate 20","new":"3999","old":"4199","repertory":99,"content":""},
@@ -30,6 +32,22 @@
                     { "id":5,"src":"http://img.alicdn.com/bao/uploaded/i1/TB1b1BSmkzoK1RjSZFlT2ii4VXa_104624.jpg" ,"title":"honor/荣耀 荣耀magic 2","new":"3999","old":"4199","repertory":1000,"content":""},
                     { "id":6,"src":"http://img.alicdn.com/bao/uploaded/i7/TB1_0P1Mq6qK1RjSZFmYzF0PFXa_103933.jpg" ,"title":"Xiaomi/小米 Redmi 7","new":"999","old":"1099","repertory":2000,"content":""},
                 ]
+            }
+
+        } ,
+        created(){
+            this.getNewsList();
+        },
+        methods:{
+            getNewsList(){
+
+                this.$http.get("http://localhost:3000/src/components/Data/goodsList.json").then((result) => {
+                    if(result.body.status == 0){
+                        this.List = result.body.result.list;
+                    }else {
+                        Toast("商品获取失败");
+                    }
+                })
             }
         }
     }

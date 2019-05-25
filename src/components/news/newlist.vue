@@ -2,7 +2,7 @@
     <div>
         <ul class="mui-table-view">
 
-            <li class="mui-table-view-cell mui-media" v-for=" item in list" :key=" item.id ">
+            <li class="mui-table-view-cell mui-media" v-for=" item in List" :key=" item.id ">
 
                 <router-link :to="'/home/newsInfo/' + item.id">
                     <img class="mui-media-object mui-pull-left" :src="item.pic">
@@ -14,190 +14,34 @@
                         </p>
                     </div>
                 </router-link>
-
-<!--                <router-link to="/home/newsInfo">-->
-<!--                    <img class="mui-media-object mui-pull-left" src="../../images/shuijiao.jpg">-->
-<!--                    <div class="mui-media-body">-->
-<!--                        木屋-->
-<!--                        <p class='mui-ellipsis'>-->
-<!--                            <span>发表时间：2019.05.20</span>-->
-<!--                            <span>点击：100次</span>-->
-<!--                        </p>-->
-<!--                    </div>-->
-<!--                </router-link>-->
-
             </li>
-<!--            <li class="mui-table-view-cell mui-media">-->
-<!--                <router-link to="/home/newsInfo">-->
-<!--                    <img class="mui-media-object mui-pull-left" src="../../images/muwu.jpg">-->
-<!--                    <div class="mui-media-body">-->
-<!--                        木屋-->
-<!--                        <p class='mui-ellipsis'>-->
-<!--                            <span>发表时间：2019.05.20</span>-->
-<!--                            <span>点击：100次</span>-->
-<!--                        </p>-->
-<!--                    </div>-->
-<!--                </router-link>-->
-<!--            </li>-->
-<!--            <li class="mui-table-view-cell mui-media">-->
-<!--                <router-link to="/home/newsInfo">-->
-<!--                    <img class="mui-media-object mui-pull-left" src="../../images/cbd.jpg">-->
-<!--                    <div class="mui-media-body">-->
-<!--                        CBD-->
-<!--                        <p class='mui-ellipsis'>-->
-<!--                            <span>发表时间：2019.05.20</span>-->
-<!--                            <span>点击：100次</span>-->
-<!--                        </p>-->
-<!--                    </div>-->
-<!--                </router-link>-->
-<!--            </li>-->
-
         </ul>
     </div>
 
 </template>
 
 <script>
-    var New = require('./New.json');
-    var News = New.News;
     import { Toast } from "mint-ui";
     export default {
         data(){
             return{
-                "list": [
-                    {
-                        "id": 1,
-                        "title": "继华为大疆之后 美又考虑将中国监控巨头列入黑名单",
-                        "time": "2019-05-22 11:54:39",
-                        "src": "环球网",
-                        "category": "mil",
-                        "pic": "https://n.sinaimg.cn/sinacn20190522s/286/w763h323/20190522/8e03-hxhyiun2734263.jpg",
-                        "content":"\"<p class=\"\\\"art_p\\\"\">《纽约时报》22 日报道称，美政府将考虑将海康威视列入黑名单，限制其购买美国技术。海康威视22日上午向《环球时报》进行回复称，“我们已关注到《纽约时报》今早的报道，期望公司得到公平、公正的对待。”针对外媒曾指责海康威视设备用于新疆对穆斯林进行大规模监视的报道，海康威视回应称，海康威视是一家产品供应商，未在新疆做过任何不恰当的行为，公司过去不曾、现在和将来也不会以侵犯人权为条件的业务作为公司业务进行经营。</p>\\n\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t<figure class=\"\\\"art_img_mini\" j_p_gallery\\\"=\"\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<img class=\"\\\"art_img_mini_img mCS_img_loaded\" j_fullppt_cover\\\"=\"\" src=\"https://n.sinaimg.cn/sinacn20190522s/520/w661h659/20190522/5c85-hxhyiun2734382.jpg\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t</figure>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\n<p class=\"\\\"art_p\\\"\">《纽约时报》报道截图</p>\\n<p class=\"\\\"art_p\\\"\">5月22日海康威视开盘即接近跌停，之后股价开始反弹，但仍然维持着超过5%的跌幅。</p>\\n\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t<figure class=\"\\\"art_img_mini\" j_p_gallery\\\"=\"\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<img class=\"\\\"art_img_mini_img mCS_img_loaded\" j_fullppt_cover\\\"=\"\" src=\"https://n.sinaimg.cn/sinacn20190522s/672/w851h621/20190522/283a-hxhyiun2734475.jpg\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t</figure>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\n<p class=\"\\\"art_p\\\"\">市场猜测海康威视早盘大跌可能来自于外媒的一则报道。根据《纽约时报》22日的报道，知情人士称，美国特朗普政府正在考虑将中国监控巨头海康威视列入黑名单，限制其购买美国技术。《纽约时报》表示，美国商务部可能会要求美国公司必须获得政府批准才能向海康威视供应零部件，以限制该公司获取有助于为其设备提供支持的技术。</p>\\n<p class=\"\\\"art_p\\\"\">去年年底，据外交部网站消息，《华尔街日报》报道称，过去一年左右，中国新疆加大了对穆斯林的大规模监视、拘留和同化行动，并将有关做法复制到中国其他穆斯林地区。中国外交部新闻发言人华春莹曾对此进行回应称，近期有一些西方媒体为了制造耸人听闻的新闻，扮演了不光彩的角色，发挥了不好的作用。他们往往基于道听途说，或者援引一些根本就是虚假或虚构的消息源进行不负责任的报道。华春莹进一步解释说，“监控设施它本身不会自动去辨认针对某个特定的族群，它震慑的是坏人，保护的是好人。同样的事情，为什么西方国家做了就是保护人权，而中国做了就是侵犯人权呢？我想只有一个解释，就是赤裸裸的双重标准。”</p>\\n<p class=\"\\\"art_p\\\"\">根据海康威视财报，2018年公司销售收入达到498亿元，净利润为113亿元，业务增长稳健。但公司认为，2018年公司在经营方面面临的挑战超过以往任何一个财年，2019年公司外部环境依然存在不确定性，某些大国的单边主义政策和贸易保护趋势明显上升，如果逆全球化的趋势加重，将影响公司在海外发达国家市场的业务拓展和品牌升级。</p>\\n<p class=\"\\\"art_p\\\"\">根据IHS报告，海康威视连续7年蝉联视频监控行业全球第一，拥有全球视频监控市场份额的22.6%。截至2018年底的数据，公司全球员工超34000人，其中研发人员和技术服务人员超16000人，其产品和解决方案已广泛应用在150多个国家和地区。</p>\\n<p class=\"\\\"art_p\\\"\">以下是海康威视就《纽约时报》的报道向《环球时报》发来的回应：</p>\\n<p class=\"\\\"art_p\\\"\">我们已关注到纽约时报今早的报道，期望公司得到公平、公正的对待。</p>\\n<p class=\"\\\"art_p\\\"\">海康威视是一家商业公司，我们恪守商业公司的本分。公司未曾因所谓的“海康威视新疆人权问题”受到任何政府、任何人权机构等的调查取证，也未有海外媒体就该问题向海康威视进行全面的、深入的核实真实情况。海康威视是一家产品供应商，我们未在新疆做过任何不恰当的行为，公司过去不曾、现在和将来也不会也以侵犯人权为条件的业务作为公司业务进行经营。公司已主动聘请美国专业人士对公司在新疆的业务进行独立审查，专业人士将在获得充分的证据后，回应海外各相关方的关注。</p>\\n<p class=\"\\\"art_p\\\"\">海康威视是全球安防行业的龙头，我们的成就是依赖全球34000名员工坚韧不拔的努力获得的。十八年来，海康威视坚守工匠精神，持续以技术创新驱动业务发展，以专业厚实、诚信正直的品德赢取信任，我们珍视每一个国家和地区的客户，我们将持之以恒的为客户创造价值。</p>\\n<p class=\"\\\"art_p\\\"\">此前报道美国又想“坏”大疆？大疆回应。↓</p>\\n<p class=\"\\\"art_p\\\"\">是不是每个成功的中国公司都有可能面临来自美国的压力？</p>\\n<p class=\"\\\"art_p\\\"\">CNN20日最新的报道让人不免对美国的气度感到担忧。</p>\\n<div sax-type=\"\\\"proxy\\\"\" class=\"\\\"j_native_qrs190522\" box\\\"=\"\" style=\"\\\"margin:20px\" 0\\\"=\"\"></div><p class=\"\\\"art_p\\\"\">如果美国还有气度的话。</p>\\n\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t<figure class=\"\\\"art_img_mini\" j_p_gallery\\\"=\"\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<img class=\"\\\"art_img_mini_img mCS_img_loaded\" j_fullppt_cover\\\"=\"\" src=\"https://n.sinaimg.cn/sinacn20190522s/271/w831h240/20190522/e658-hxhyiun2734739.jpg\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t</figure>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\n<p class=\"\\\"art_p\\\"\">CNN报道截图</p>\\n<p class=\"\\\"art_p\\\"\">CNN在题为“国土安全部强烈担忧：中国产无人机在窃取数据”的报道中说，美国国土安全部下属网络和基础设施安全局在当地时间周一（20日）发布报告，警告称“中国产无人机可能正将敏感数据传送回国内制造商”，并称这种做法会对美国机构的信息安全带来“潜在威胁”。这份报告没有具体点出是哪一家中国无人机制造商，但CNN全文都将目光投向大疆，CNN说，美国和加拿大市场上接近80%的无人机都来自中国大疆。</p>\\n\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t<figure class=\"\\\"art_img_mini\" j_p_gallery\\\"=\"\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<img class=\"\\\"art_img_mini_img mCS_img_loaded\" j_fullppt_cover\\\"=\"\" src=\"https://n.sinaimg.cn/sinacn20190522s/498/w831h467/20190522/9d99-hxhyiun2734787.jpg\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t</figure>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\n<p class=\"\\\"art_p\\\"\">2015年迪拜举行的科技展上展示的大疆无人机。（图源：CNN）</p>\\n<p class=\"\\\"art_p\\\"\">CNN说，美国国土安全部在警告中称，“美国政府对于任何技术产品将美国数据带回集权国家感到强烈担忧”，宣称这些国家有可能让其情报机构无约束地接触到美国的数据。该警告尤其提到中国，和中国产无人机。</p>\\n\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t<figure class=\"\\\"art_img_mini\" j_p_gallery\\\"=\"\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<img class=\"\\\"art_img_mini_img mCS_img_loaded\" j_fullppt_cover\\\"=\"\" src=\"https://n.sinaimg.cn/sinacn20190522s/368/w644h524/20190522/ae05-hxhyiun2734835.jpg\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t</figure>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\n<p class=\"\\\"art_p\\\"\">今早，有媒体报道说，大疆可能因此面临来自美国方面的制裁。但环球网记者在CNN报道中没有看到这个信息。CNN提到，美国针对大疆的警告并非首次。2017年，美军曾发布禁令，禁止使用大疆无人机。</p>\\n<p class=\"\\\"art_p\\\"\">就在刚刚，环球网编辑部收到来自大疆公司针对美国国土安全部警告的回应。</p>\\n<p class=\"\\\"art_p\\\"\">回应全文如下：</p>\\n<p class=\"\\\"art_p\\\"\">“DJI大疆创新一直以来高度重视信息安全问题，我们技术的安全性已经在全球得到反复验证，其中也包括美国政府和美国领先企业的独立验证。当用户使用DJI大疆创新的无人机或其他技术产品时，所生产、存储和传输的数据都完全由用户掌握。此外，DJI大疆创新还提供特殊的模式以满足不同客户的信息安全管理需要，比如断开网络连接的本地数据模式、私有云部署模式等等。全球大量机构每天都在使用DJI大疆创新的技术，以提高生产效率，保障生产安全，甚至是拯救生命。DJI大疆创新将持续与全球的客户及政府管理部门合作，确保我们能满足不同地区不同行业的技术规范以及信息安全需要。”</p>\\n<p class=\"\\\"art_p\\\"\">环环：每次做这种新闻，脑海中都会冒出一个老祖宗留下的成语——贼喊捉贼！</p>\\n<p class=\"\\\"art_p\\\"\">你同意么？</p>\\n<p class=\"\\\"art_p\\\"\">来源：环球时报-环球网/倪浩</p>\\n<p class=\"\\\"art_p\\\"\"></p>\"",
-                        "url": "http://mil.sina.cn/2019-05-22/detail-ihvhiqay0508178.d.html?vt=4&pos=108",
-                        "weburl": "https://mil.news.sina.com.cn/2019-05-22/doc-ihvhiqay0508178.shtml"
-                    },
-                    {
-                        "id": 2,
-                        "title": "袁仁国被双开 17天前被免去贵州省政协委员职务",
-                        "time": "2019-05-22 16:53:00",
-                        "src": "澎湃新闻",
-                        "category": "news",
-                        "pic": "https://cms-bucket.ws.126.net/2019/05/22/aacd27545c2d4890a598e4ef5cf8eabb.png",
-                        "content":"\"<div class=\"\\\"content\\\"\">\\n          <div class=\"\\\"page\" js-page=\"\" on\\\"=\"\">\\n            <div class=\"\\\"photo\\\"\">\\n                  <a href=\"\\\"http://crawl.ws.126.net/8b526394206e0a0b8eda0e99a0738998.jpg\\\"\">\\n                      <img alt=\"\\\"袁仁国\" 视觉中国=\"\" 资料图\\\"=\"\" src=\"http://crawl.ws.126.net/8b526394206e0a0b8eda0e99a0738998.jpg\" class=\"mCS_img_loaded\">\\n                      <span>袁仁国  视觉中国 资料图</span>\\n                  </a>\\n              </div><p>5月22日下午，中央纪委国家监委网站援引贵州省纪委监委消息，通报了贵州茅台酒厂（集团）有限责任公司党委原副书记、原董事长袁仁国被开除党籍、开除公职的消息。</p><p>17天前，5月5日，政协第十二届贵州省委员会常务委员会第十次会议决定，免去袁仁国同志政协第十二届贵州省委员会常务委员、经济委员会副主任、省政协委员职务。</p><p>在此次“双开”通报之前，贵州省纪委监委未披露对袁仁国进行纪律审查和监察调查的消息。</p><p>官方通报显示，经查，袁仁国严重违反政治纪律和政治规矩，将茅台酒经营权作为拉拢关系、利益交换的工具，进行政治攀附，捞取政治资本；大搞权权、权钱交易，大肆为不法经销商违规从事茅台酒经营提供便利，严重破坏茅台酒营销环境；大搞“家族式腐败”；转移赃款赃物，与他人串供，对抗组织审查。违反组织纪律，不如实报告个人有关事项。违反廉洁纪律，违规从事营利活动，非法获取巨额利益；大搞权色、钱色交易。违反国家法律法规规定，利用职务上的便利，为他人谋取利益，非法收受他人财物，数额特别巨大，涉嫌受贿犯罪。</p><p>通报称，袁仁国身为党员领导干部和贵州省重点国有企业负责人，把党和人民赋予的国有企业经营管理权当作个人和家族谋取私利的工具，严重违反党的纪律和国家法律法规规定，且在十八大后不收敛、不收手，性质十分恶劣，应予严肃处理。依据《中国共产党纪律处分条例》《中华人民共和国监察法》等有关规定，经省纪委常委会会议、省监委委务会议研究并报省委批准，决定给予袁仁国开除党籍、开除公职处分，将其涉嫌犯罪问题移送检察机关依法处理。</p><p>公开资料显示，袁仁国出生于1956年，1975年在贵州茅台酒厂参加工作，历任办公室秘书、办公室副主任、车间主任、支部书记、厂长助理等职务；1998年起担任贵州茅台集团党委副书记、副董事长，贵州茅台酒股份有限公司总经理；2000年起担任贵州茅台酒股份有限公司董事长。</p><p>2018年5月6日晚，茅台集团传出人事消息：茅台集团党委书记、总经理李保芳同志被提名为茅台集团董事长人选，董事长职务任免需按有关法律程序办理，袁仁国同志不再担任茅台集团董事长职务。</p></div><div class=\"\\\"page\" js-page\\\"=\"\"><p>据澎湃新闻此前报道，2001年，袁仁国执掌贵州茅台之初，五粮液的营业收入为47.42亿元，茅台营收为16.18亿元，仅为五粮液的三分之一。此后近20年时间，贵州茅台的营收一步步超过五粮液、保乐力加和帝亚吉欧。2008年，贵州茅台实现营业收入82.42亿元，超过五粮液的79.33亿元。</p><p>澎湃新闻注意到，在袁仁国被“双开”的通报中，提到了“将茅台酒经营权作为拉拢关系、利益交换的工具，进行政治攀附，捞取政治资本”等与茅台酒有关的案情。</p><p>事实上，茅台酒在推广了贵州知名度的同时，也屡屡在一些腐败案件中现身。为应对这一状况，贵州省曾在今年1月采取针对性措施。</p><p>1月17日，贵州官方媒体发布称，贵州省委办公厅、省政府办公厅印发了《关于严禁领导干部利用茅台酒谋取私利的规定》。</p><p>这份《规定》明确提出，领导干部严禁有五个方面的行为：本人、配偶、子女及其配偶参与茅台酒经营活动；利用职权或者职务上的影响，为其他特定关系人获取茅台酒经营资格、增加茅台酒销售指标、倒卖茅台酒提供便利；违规审批茅台酒经营权；违规收送茅台酒；其他违规插手、参与茅台酒经营的行为。</p><p>此外，《规定》还指出，领导干部要教育管理好亲属和身边工作人员，严禁其利用本人职权或者职务上的影响参与茅台酒经营活动。</p><div class=\"\\\"photo\\\"\">\\n                  <a href=\"\\\"http://cms-bucket.ws.126.net/2019/05/21/146ac110002d4452bbe48ece4c80ed96.jpeg\\\"\">\\n                      <img alt=\"\\\"\\\"\" src=\"http://cms-bucket.ws.126.net/2019/05/21/146ac110002d4452bbe48ece4c80ed96.jpeg\" class=\"mCS_img_loaded\">\\n                      <span></span>\\n                  </a>\\n              </div><p>作者：蒋子文</p>\\n            <div class=\"\\\"otitle_editor\\\"\">\\n              <p class=\"\\\"otitle\\\"\">(原标题：免去贵州省政协委员职务17天后，茅台原董事长袁仁国被双开)</p>\\n               \\n              <p class=\"\\\"editor\\\"\">(责任编辑：苏泓珵_NBJ9980)</p>\\n            </div>\\n          </div>\\n ",
-                        "url": "http://3g.163.com/news/19/0522/16/EFQ0DHAA00018AOR.html",
-                        "weburl": "http://news.163.com/19/0522/16/EFQ0DHAA00018AOR.html"
-                    },
-                    {
-                        "id": 3,
-                        "title": "广东核工业地质局原局长顾青波被逮捕:滥权妄为",
-                        "time": "2019-05-22 17:05:11",
-                        "src": "北青网-北京青年报",
-                        "category": "news",
-                        "pic": "https://cms-bucket.ws.126.net/2019/05/22/850297d27b0c41d7bf56da3031ca440e.png",
-                        "content":"\"<div class=\"\\\"content\\\"\">\\n          <div class=\"\\\"page\" js-page=\"\" on\\\"=\"\">\\n            <p>最高检22日消息，广东省核工业地质局原党组书记、局长顾青波（正厅级）涉嫌受贿罪、滥用职权罪一案，由广东省监察委员会调查终结，移送检察机关审查起诉。经广东省人民检察院指定管辖，由佛山市人民检察院审查起诉。</p><p>日前，佛山市人民检察院依法以涉嫌受贿罪、滥用职权罪对顾青波作出逮捕决定。案件正在进一步办理中。</p><p>今年5月，顾青波被双开。</p><p>通报提到，他理想信念丧失，政治上蜕化变质，对党不忠诚不老实，对抗组织审查；违反中央八项规定精神，多次违规接受高档宴请，收受礼品、礼金；组织观念淡薄，不按规定报告个人有关事项；滥权妄为，致使国家利益遭受重大损失；权力观扭曲，公权私用，利用职权或职务影响，为他人在承接项目业务、申请财政补贴等方面提供帮助并收受财物。</p><p>“顾青波严重违反党的政治纪律、中央八项规定精神、组织纪律、廉洁纪律，构成职务违法并涉嫌受贿、滥用职权犯罪，且不知敬畏，在党的十八大后不收敛、不收手，性质严重，影响恶劣，应予严肃处理。”</p><div class=\"\\\"photo\\\"\">\\n                  <a href=\"\\\"http://cms-bucket.ws.126.net/2019/05/22/2ebdad8307a641eebbe0635856263f1f.jpeg\\\"\">\\n                      <img alt=\"\\\"\\\"\" src=\"http://cms-bucket.ws.126.net/2019/05/22/2ebdad8307a641eebbe0635856263f1f.jpeg\" class=\"mCS_img_loaded\">\\n                      <span></span>\\n                  </a>\\n              </div><p>作者：孟亚旭</p>\\n            <div class=\"\\\"otitle_editor\\\"\">\\n              <p class=\"\\\"otitle\\\"\">(原标题：广东核工业地质局原局长顾青波被决定逮捕)</p>\\n               \\n              <p class=\"\\\"editor\\\"\">(责任编辑：李杭_BJS4645)</p>\\n            </div>\\n ",
-                        "url": "http://3g.163.com/news/19/0522/17/EFQ0VFQS0001899N.html",
-                        "weburl": "http://news.163.com/19/0522/17/EFQ0VFQS0001899N.html"
-                    },
-                    {
-                        "id": 4,
-                        "title": "国务院成立国务院就业工作领导小组 胡春华任组长",
-                        "time": "2019-05-22 17:08:23",
-                        "src": "中央人民政府网站",
-                        "category": "news",
-                        "pic": "https://cms-bucket.ws.126.net/2019/05/22/f65c73d7fdc0435aa8f33290e5297d47.png",
-                        "content":"",
-                        "url": "http://3g.163.com/news/19/0522/17/EFQ15BF10001899N.html",
-                        "weburl": "http://news.163.com/19/0522/17/EFQ15BF10001899N.html"
-                    },
-                    {
-                        "id": 5,
-                        "title": "李鸿忠约谈8家金融机构:个别机构负责人目无法纪",
-                        "time": "2019-05-22 15:57:00",
-                        "src": "中央纪委国家监委网站",
-                        "category": "news",
-                        "pic": "https://cms-bucket.ws.126.net/2019/05/22/f2f1fe8fa11b45c7841e177edce37927.png",
-                        "content":"",
-                        "url": "http://3g.163.com/news/19/0522/16/EFPTHNDA00018AOR.html",
-                        "weburl": "http://news.163.com/19/0522/16/EFPTHNDA00018AOR.html"
-                    },
-                    {
-                        "id": 6,
-                        "title": "中央问责后从副市长低调转任副巡视员的他 落马了",
-                        "time": "2019-05-22 17:13:04",
-                        "src": "政知圈",
-                        "category": "news",
-                        "pic": "https://cms-bucket.ws.126.net/2019/05/22/118aeb1026a74dd6ac011ca7e962ba82.png",
-                        "content":"",
-                        "url": "http://3g.163.com/news/19/0522/17/EFQ1DTT00001899N.html",
-                        "weburl": "http://news.163.com/19/0522/17/EFQ1DTT00001899N.html"
-                    },
-                    {
-                        "id": 7,
-                        "title": "海南举报自己拿回扣医生:遭院长停职威胁 愿退回扣",
-                        "time": "2019-05-22 16:02:00",
-                        "src": "澎湃新闻",
-                        "category": "news",
-                        "pic": "https://cms-bucket.ws.126.net/2019/05/22/86832511d10f46beaa205ca3ec57225f.png",
-                        "content":"",
-                        "url": "http://3g.163.com/news/19/0522/16/EFPTG3M700018AOR.html",
-                        "weburl": "http://news.163.com/19/0522/16/EFPTG3M700018AOR.html"
-                    },
-                    {
-                        "id": 8,
-                        "title": "继东航、国航、南航后 厦航宣布将向波音公司索赔",
-                        "time": "2019-05-22 17:12:30",
-                        "src": "央视新闻",
-                        "category": "news",
-                        "pic": "https://cms-bucket.ws.126.net/2019/05/22/b472a0f399a94030a4de56a5b56c2d04.png",
-                        "content":"",
-                        "url": "http://3g.163.com/news/19/0522/17/EFQ1CSG60001899N.html",
-                        "weburl": "http://news.163.com/19/0522/17/EFQ1CSG60001899N.html"
-                    },
-                    {
-                        "id": 9,
-                        "title": "视频：北方7城现今年首个高温 北京发布高温预警",
-                        "time": "2019-05-22 13:27:57",
-                        "src": "中国新闻网",
-                        "category": "video",
-                        "pic": "https://p.ivideo.sina.com.cn/video/290/177/950/290177950.jpg",
-                        "content":"",
-                        "url": "https://video.sina.cn/news/2019-05-22/detail-ihvhiews3715557.d.html?vt=4&pos=108",
-                        "weburl": "http://video.sina.com.cn/p/news/2019-05-22/detail-ihvhiews3715557.d.html"
-                    },
-                    {
-                        "id": 10,
-                        "title": "茅台原董事长袁仁国被查 此前交代:涉及利益以亿算",
-                        "time": "2019-05-22 16:09:52",
-                        "src": "新京报",
-                        "category": "news",
-                        "pic": "https://cms-bucket.ws.126.net/2019/05/22/94415b9aea134599b8821d2d66ee2c3b.png",
-                        "content":"",
-                        "url": "http://3g.163.com/news/19/0522/16/EFPTQ6090001899N.html",
-                        "weburl": "http://news.163.com/19/0522/16/EFPTQ6090001899N.html"
-                    }
-                ],
+                "List":[],
 
-                newslist:[]
             }
         },
         created(){
-            //this.getNewsList();
+            this.getNewsList();
         },
         methods:{
             getNewsList(){
 
-                this.$http.jsonp("https://news-at.zhihu.com/api/4/news/latest", {},
-                    {
-                        headers: {},
-                        emulateJSON: true }).then((result) => {
-                    console.log(111)
-                    // if(result.body.data != 0){
-                    //     console.log(111)
-                    //     this.newslist = result.body.result.list;
-                    // }else{
-                    //     Toast("加载新闻资讯失败。。。");
-                    // }
-                });
+                this.$http.get("http://localhost:3000/src/components/Data/New.json").then((result) => {
+                    if(result.body.status == 0){
+                        this.List = result.body.result.list;
+                    }else {
+                        Toast("新闻获取失败");
+                    }
+                })
             }
         }
     }
