@@ -9,6 +9,7 @@ import router from './router.js'
 //导入MUI样式
 import './lib/mui/css/mui.min.css'
 import './lib/mui/css/icons-extra.css'
+
 //按需导入Mint-ui
 import { Header, Swipe, SwipeItem , Button, Lazyload } from 'mint-ui'
 Vue.component(Swipe.name, Swipe)
