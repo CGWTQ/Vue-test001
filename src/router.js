@@ -10,6 +10,8 @@ import images from './components/photos/images.vue'
 import imageAll from './components/photos/imgInfo/imageAll.vue'
 import shop from './components/goods/goodslist.vue'
 import goodsInfo from './components/goods/goodsInfo.vue'
+import goodsDesc from "./components/goods/goodsdesc.vue"
+import goodscomment from "./components/goods/goodscomment.vue"
 
 
 // 3. 创建路由对象
@@ -27,6 +29,9 @@ var router = new VueRouter({
         { path: '/home/images/imagesAll', component: imageAll },
         { path: '/home/shop', component: shop },
         { path: '/home/shoppingInfo/:id', component: goodsInfo },
+
+        { path: '/home/goodsDesc/:id', component: goodsDesc, name: "goodsDesc"},
+        { path: '/home/goodsDesc', component: goodscomment, name: "goodsComment"},
 
     ],
     linkActiveClass:'mui-active'
