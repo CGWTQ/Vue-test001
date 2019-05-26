@@ -31,6 +31,7 @@
         created(){
             this.getNewsList();
         },
+
         methods:{
             getNewsList(){
 

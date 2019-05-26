@@ -27,12 +27,7 @@
                         <span class="now-price">销售价：￥{{ phoneList.new }}</span>
                     </p>
                     <span>购买数量：</span>
-                    <div class="mui-numbox" data-numbox-min='1' data-numbox-max='9'>
-
-                        <button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
-                        <input id="test" class="mui-input-numbox" type="number" value="1" />
-                        <button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
-                    </div>
+                    <numbox :num="phoneList.repertory"></numbox>
                     <p class="goodsinfo-btn">
                         <mt-button type="primary" size="small">立即购买</mt-button>
                         <mt-button type="danger" size="small" @click="addToShopCar">加入购物车</mt-button>
@@ -64,7 +59,9 @@
 <script>
     import { Toast } from "mint-ui";
     import swiper from '../subcomponets/swiper.vue'
-    import '../../lib/mui/js/mui.min.js'
+    import numbox from "../../components/subcomponets/goosinfo-numbox.vue"
+
+    let count = 0; //记录购物车数量
     export default {
         data(){
             return{
@@ -72,10 +69,11 @@
                 phoneList:[],
                 "id":this.$route.params.id,
                 ballFlag:false, //控制小球隐藏显示
+                "selectedCount":0,
+
             }
         } ,
         created(){
-
             this.getimagesList();
             this.getPhoneList();
         },
@@ -129,16 +127,21 @@
                 const yDist = badgePosition.top - ballPosition.top;
 
                 el.style.transform=`translate(${xDist}px,${yDist}px)`;
-                el.style.transition = "all 1s cubic-bezier(.17,.67,.83,.67)";
+                el.style.transition = "all 0.5s cubic-bezier(.17,.67,.83,.67)";
                 done();
             },
             afterEnter(el){
                 this.ballFlag = !this.ballFlag;
-            }
+                this.selectedCount = parseInt(document.getElementById("test").value)
+                count=count+this.selectedCount
+                document.getElementById("badge").innerHTML = count;
+
+            },
             /******************/
         },
         components:{
-            swiper
+            swiper,
+            numbox
         }
     }
 </script>
@@ -152,17 +155,8 @@
         font-size: 16px;
         font-weight: bold;
     }
-    .mui-numbox{
-        height: 25px;
-    }
     .goodsinfo-btn{
         padding-top: 10px;
-    }
-    .mui-card-footer{
-        display: block;
-        button{
-            margin: 15px 0;
-        }
     }
     .ball{
         width: 15px;

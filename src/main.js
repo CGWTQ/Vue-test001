@@ -1,6 +1,7 @@
 // 入口文件
 import Vue from 'vue'
 import app from './App.vue'
+
 //配置路由
 import VueRouter from 'vue-router'
 //导入自用路由模块
