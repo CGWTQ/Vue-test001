@@ -13,11 +13,12 @@ import './lib/mui/css/mui.min.css'
 import './lib/mui/css/icons-extra.css'
 
 //按需导入Mint-ui
-import { Header, Swipe, SwipeItem , Button, Lazyload } from 'mint-ui'
+import { Header, Swipe, SwipeItem , Button, Lazyload, Switch } from 'mint-ui'
 Vue.component(Swipe.name, Swipe)
 Vue.component(SwipeItem.name, SwipeItem)
 Vue.component(Button.name, Button);
 Vue.use(Lazyload);
+Vue.component(Switch.name, Switch);
 
 //应用路由模块
 Vue.use(VueRouter);
@@ -54,6 +55,25 @@ var store = new Vuex.Store({
             }
             //将car数组存储在本地
             localStorage.setItem("car",JSON.stringify(state.car));
+        },
+        updataGoosInfo(state,goodsinfo){
+            //修改购物车中商品数量值
+            state.car.some(item => {
+                if(item.id === goodsinfo.id){
+                    item.count = parseInt(goodsinfo.count)
+                    return true
+                }
+            });
+            localStorage.setItem("car",JSON.stringify(state.car));
+        },
+        remove(state,id){
+            state.car.some((item,i) => {
+                if(item.id === id){
+                    state.car.splice(i,1);
+                    return  true
+                }
+            });
+            localStorage.setItem("car",JSON.stringify(state.car));
         }
     },
     getters:{     //this.$store.getters.***
@@ -63,6 +83,13 @@ var store = new Vuex.Store({
                 c += item.count;
             })
             return c;
+        },
+        getGoodsCount(state){
+            var o ={};
+            state.car.forEach(item => {
+                o[item.id] = item.count;
+            })
+            return o
         }
     }
 })

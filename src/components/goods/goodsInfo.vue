@@ -107,7 +107,7 @@
                 //添加到购物车
                 this.selectedCount = parseInt(document.getElementById("test").value)
                 this.ballFlag = !this.ballFlag;
-                var goodsinfo = { id:this.id, count:this.selectedCount, price:this.phoneList.new, selected:true };
+                var goodsinfo = { id:this.id, count:this.selectedCount, price:this.phoneList.new,title:this.phoneList.title, src:this.phoneList.src , selected:true };
 
                 this.$store.commit("addToCar",goodsinfo);
 

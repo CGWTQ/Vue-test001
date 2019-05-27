@@ -1,7 +1,7 @@
 <template>
     <div class="goodslist-container">
         <router-link :to="'/home/shoppingInfo/' + item.id" class="goods-item"v-for="item in List" :key="item.id" tag="div">
-            <img :src="item.src" alt="魅族16s">
+            <img :src="item.src" >
             <h1 class="title" >{{ item.title}}</h1>
             <div class="info">
                 <p class="price">
