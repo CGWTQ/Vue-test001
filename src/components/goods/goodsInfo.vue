@@ -67,9 +67,9 @@
             return{
                 List:[],
                 phoneList:[],
-                "id":this.$route.params.id,
+                id:this.$route.params.id,
                 ballFlag:false, //控制小球隐藏显示
-                "selectedCount":0,
+                selectedCount:1,
 
             }
         } ,
@@ -105,7 +105,17 @@
             },
             addToShopCar(){
                 //添加到购物车
+                this.selectedCount = parseInt(document.getElementById("test").value)
                 this.ballFlag = !this.ballFlag;
+                var goodsinfo = { id:this.id, count:this.selectedCount, price:this.phoneList.new, selected:true };
+
+                this.$store.commit("addToCar",goodsinfo);
+
+
+
+
+                // count=count+this.selectedCount
+                // document.getElementById("badge").innerHTML = count;
             },
             /* 小球半场动画 */
             beforeEnter(el){
@@ -132,10 +142,6 @@
             },
             afterEnter(el){
                 this.ballFlag = !this.ballFlag;
-                this.selectedCount = parseInt(document.getElementById("test").value)
-                count=count+this.selectedCount
-                document.getElementById("badge").innerHTML = count;
-
             },
             /******************/
         },
