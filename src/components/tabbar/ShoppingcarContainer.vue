@@ -5,12 +5,13 @@
             <div class="mui-card">
                 <div class="mui-card-content">
                     <div class="mui-card-content-inner" >
-                        <mt-switch ></mt-switch>
+                        <mt-switch v-model="$store.getters.fetGoodsSelecte[item.id]"
+                        @change="selectedChange(item.id,$store.getters.fetGoodsSelecte[item.id])"></mt-switch>
                         <img :src="item.src" alt="">
                         <div class="info">
                             <h1>{{ item.title}}</h1>
                             <p>
-                                <span class="price">￥{{ item.new}}</span>
+                                <span class="price">￥{{ item.price}}</span>
                                 <shopCarNumbox :initCount="$store.getters.getGoodsCount[item.id]" :goodsid="item.id"></shopCarNumbox>
                                 <a href="#" @click.prevent="remove(item.id,i)">删除</a>
                             </p>
@@ -24,15 +25,22 @@
 
         <div class="mui-card">
             <div class="mui-card-content">
-                <div class="mui-card-content-inner">
-                    这是一个最简单的卡片视图控件；卡片视图常用来显示完整独立的一段信息，比如一篇文章的预览图、作者信息、点赞数量等
+                <div class="mui-card-content-inner jiesuan">
+                    <div class="left">
+                        <p>总计（不含运费）</p>
+                        <p>已勾选商品 <span class="red">{{ $store.getters.getSum.count }}</span> 件，总价<span class="red">￥{{  $store.getters.getSum.amount  }}</span></p>
+                    </div>
+                    <mt-button type="danger" @click="getAll">去结算</mt-button>
                 </div>
             </div>
         </div>
+
+        <p>{{ $store.getters.fetGoodsSelecte }}</p>
     </div>
 </template>
 
 <script>
+    import { Toast } from "mint-ui";
     import shopCarNumbox from '../subcomponets/shopcar-numbox.vue'
 
     export default {
@@ -45,6 +53,9 @@
            this.getNewsList();
         },
         methods:{
+            getAll(){
+                Toast("开发中！");
+            },
             getNewsList(){
                 this.$store.state.car.forEach(item =>this.List.push(item) )
 
@@ -68,6 +79,10 @@
                 this.$store.commit("remove",id);
                 this.List.splice(index,1);
 
+            },
+            selectedChange(id,val){ //购物车选中按钮，改变同步最新状态
+                this.$store.commit("updataSlected",{ id, selected:val });
+                // console.log(id+'----'+val)
             }
         },
         components:{
@@ -103,6 +118,16 @@
         .mui-card-content-inner{
             display: flex;
             align-items: center;
+        }
+    }
+    .jiesuan{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .red{
+            color: red;
+            font-weight: bold;
+            font-size: 16px;
         }
     }
 }

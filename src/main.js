@@ -20,6 +20,7 @@ Vue.component(Button.name, Button);
 Vue.use(Lazyload);
 Vue.component(Switch.name, Switch);
 
+
 //应用路由模块
 Vue.use(VueRouter);
 Vue.use(Vuex);
@@ -74,6 +75,15 @@ var store = new Vuex.Store({
                 }
             });
             localStorage.setItem("car",JSON.stringify(state.car));
+        },
+        updataSlected(state,info){
+            state.car.some((item,i) => {
+                if(item.id === info.id){
+                    item.selected = info.selected;
+                    return  true
+                }
+            });
+            localStorage.setItem("car",JSON.stringify(state.car));
         }
     },
     getters:{     //this.$store.getters.***
@@ -90,6 +100,26 @@ var store = new Vuex.Store({
                 o[item.id] = item.count;
             })
             return o
+        },
+        fetGoodsSelecte(state){ //购物车选中按钮状态
+            var s = {};
+            state.car.forEach(item => {
+                s[item.id] = item.selected;
+            })
+            return s;
+        },
+        getSum(state){  //计算购物车 数量 和 总价
+            var sum = {
+                count:0,
+                amount:0
+            };
+            state.car.forEach(item => {
+                if(item.selected === true){
+                    sum.count += item.count;
+                    sum.amount += item.price * item.count;
+                }
+            });
+            return sum;
         }
     }
 })

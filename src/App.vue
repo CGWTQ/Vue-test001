@@ -2,7 +2,11 @@
   <div class="app-container">
 
 <!--   顶部 Header 区域  -->
-      <mt-header fixed title="Vue 商城"></mt-header>
+      <mt-header fixed title="Vue 商城">
+          <span  slot="left" @click="goBack" v-show="flag">
+              <mt-button icon="back">返回</mt-button>
+          </span>
+      </mt-header>
 
 <!--   中间 Router 区域  -->
       <transition>
@@ -34,6 +38,30 @@
 </template>
 
 <script>
+    export default{
+        data(){
+            return{
+                flag : false
+            }
+        },
+        created(){
+          this.flag = this.$route.path === '/home' ? false : true;
+        },
+        methods:{
+            goBack(){ //点击后退
+                this.$router.go(-1);
+            }
+        },
+        watch:{ //监听 url 地址，是否隐藏 返回 按钮
+            "$route.path":function (newVal) {
+                if(newVal === '/home'){
+                    this.flag = false
+                }else {
+                    this.flag = true
+                }
+            }
+        }
+    }
 </script>
 
 
